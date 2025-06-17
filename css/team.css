@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 300px); /* doubled from 150px */
+    grid-template-rows: repeat(2, 300px);   /* doubled from 150px */
+    gap: 32px;                             /* doubled from 16px */
+}
+
+.box {
+    position: relative;
+    width: 300px;  /* doubled */
+    height: 300px; /* doubled */
+    overflow: hidden;
+    border-radius: 16px; /* doubled radius for harmony */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.outer {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%; /* Keep same relative size for logo */
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 300px); /* doubled */
+    grid-template-rows: repeat(2, 300px);   /* doubled */
+    gap: 32px;                             /* doubled */
+}

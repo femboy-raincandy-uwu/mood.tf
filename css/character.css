@@ -1,0 +1,30 @@
+/* The canvas of midnight, with the row of stars at its center */
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #121212;
+    
+    display: flex;
+    justify-content: center; /* center horizontally */
+    align-items: center;     /* center vertically */
+  }
+  
+  .image-row {
+    display: flex;
+    gap: 24px;              /* generous breathing space between images */
+  }
+  
+  .image-row img {
+    width: 100px;           /* bold, visible size */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;    /* gentle rounding, soft edges */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .image-row img:hover {
+    transform: scale(1.1);  /* subtle growth on hover, like a gentle bloom */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+  }
+  
