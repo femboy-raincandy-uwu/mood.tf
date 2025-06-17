@@ -1,22 +1,60 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/character.css">
-    <title>Mood.tf</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BLU: Builder's League Unite</title>
+  <link rel="stylesheet" href="../css/character.css" />
 </head>
 <body>
-
   <div class="image-row">
-    <img src="image1.jpg" alt="Image 1" />
-    <img src="image2.jpg" alt="Image 2" />
-    <img src="image3.jpg" alt="Image 3" />
-    <img src="image4.jpg" alt="Image 4" />
-    <img src="image5.jpg" alt="Image 5" />
-    <img src="image6.jpg" alt="Image 6" />
-    <img src="image7.jpg" alt="Image 7" />
-    <img src="image8.jpg" alt="Image 8" />
-    <img src="image9.jpg" alt="Image 9" />
+    <a href="../classes/blu/scout.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Scout.png" alt="Scout" />
+    </a>
+    <a href="../classes/blu/soldier.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/soldier.png" alt="Image 2" />
+    </a>
+    <a href="../classes/blu/pyro.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Pyro.png" alt="Image 3" />
+    </a>
+    <a href="../classes/blu/demoman.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/demo.png" alt="Image 4" />
+    </a>
+    <a href="../classes/blu/heavy.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Heavy.png" alt="Image 5" />
+    </a>
+    <a href="../classes/blu/engineer.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Engineer.png" alt="Image 6" />
+    </a>
+    <a href="../classes/blu/medic.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Medic.png" alt="Image 7" />
+    </a>
+    <a href="../classes/blu/sniper.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Sniper.png" alt="Image 8" />
+    </a>
+    <a href="../classes/blu/spy.html" target="_blank" rel="noopener noreferrer">
+      <img src="../images/Spy.png" alt="Image 9" />
+    </a>
   </div>
+
+  <script>
+    document.addEventListener('keydown', function(event) {
+      // Q = go back
+      if (event.key === 'q' || event.key === 'Q') {
+        history.back();
+      }
+  
+      // Keys 1–9 open respective links
+      const index = parseInt(event.key, 10);
+      if (index >= 1 && index <= 9) {
+        const links = document.querySelectorAll('.image-row a');
+        const targetLink = links[index - 1]; // zero-based indexing
+        if (targetLink) {
+          window.open(targetLink.href, '_blank');
+        }
+      }
+    });
+  </script>
+
 </body>
 </html>

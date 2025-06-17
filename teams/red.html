@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RED:</title>
+  <link rel="stylesheet" href="../css/character.css" />
+</head>
+<body>
+    <div class="image-row">
+      <a href="../classes/red/scout.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Scout-red.png" alt="Scout" />
+      </a>
+      <a href="../classes/red/soldier.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/soldier-red.png" alt="Image 2" />
+      </a>
+      <a href="../classes/red/pyro.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Pyro-red.png" alt="Image 3" />
+      </a>
+      <a href="../classes/red/demoman.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/demo-red.png" alt="Image 4" />
+      </a>
+      <a href="../classes/red/heavy.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Heavy-red.png" alt="Image 5" />
+      </a>
+      <a href="../classes/red/engineer.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Engineer-red.png" alt="Image 6" />
+      </a>
+      <a href="../classes/red/medic.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Medic-red.png" alt="Image 7" />
+      </a>
+      <a href="../classes/red/sniper.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Sniper-red.png" alt="Image 8" />
+      </a>
+      <a href="../classes/red/spy.html" target="_blank" rel="noopener noreferrer">
+        <img src="../images/Spy-red.png" alt="Image 9" />
+      </a>
+    </div>
+  
+    <script>
+        document.addEventListener('keydown', function(event) {
+          // Q = go back
+          if (event.key === 'q' || event.key === 'Q') {
+            history.back();
+          }
+      
+          // Keys 1–9 open respective links
+          const index = parseInt(event.key, 10);
+          if (index >= 1 && index <= 9) {
+            const links = document.querySelectorAll('.image-row a');
+            const targetLink = links[index - 1]; // zero-based indexing
+            if (targetLink) {
+              window.open(targetLink.href, '_blank');
+            }
+          }
+        });
+      </script>
+      
+      
+
+  </body>
+  </html>
+  
