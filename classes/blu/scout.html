@@ -1,30 +1,79 @@
-<html lang="en"></html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/loadout.css">
-    <title>Mood.tf</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Centered Local GIF</title>
+  <link rel="stylesheet" href="../../css/loadout.css">
 </head>
 <body>
 
-    <div class="container">
-        <a href="./teams/blu.html" class="box">
-          <img class="outer" src="./images/blue.png" alt="Outer Image 1">
-          <img class="inner" src="./images/blu-logo.png" alt="Inner Image 1">
-        </a>
-        <a href="./teams/red.html" class="box">
-          <img class="outer" src="./images/red.png" alt="Outer Image 2">
-          <img class="inner" src="./images/red-logo.png" alt="Inner Image 2">
-        </a>
-        <a href="https://github.com/femboy-raincandy-uwu/mood.tf" class="box">
-          <img class="outer" src="./images/grey.png" alt="Outer Image 3">
-          <img class="inner" src="./images/enby_co_1.png" alt="Inner Image 3">
-        </a>
-        <a href="https://example.com/4" class="box">
-          <img class="outer" src="./images/brown.png" alt="Outer Image 4">
-          <img class="inner" src="./images/mge-logo.png" alt="Inner Image 4">
-        </a>
-      </div>
+  <div class="container">
+    <div class="buttons">
+      <button id="previous">Previous</button>
+      <button id="play">Play</button>
+      <button id="next">Next</button>
+    </div>
+
+    <div class="gif-container">
+      <img src="../../images/gifs/scout-blu.gif" alt="Scout Blu Dancing" class="scout-gif">
+    </div>
+  </div>
+
+  <script>
+    // Playlist of MP3s
+    const playlist = [
+  '../../music/scout/sax.mp3',
+  '../../music/scout/riot.mp3',
+  '../../music/scout/dirt.mp3'
+];
+
+    let currentIndex = 0;
+    let audio = new Audio(playlist[currentIndex]);
+    let isPlaying = false;
+
+    const playButton = document.getElementById('play');
+    const nextButton = document.getElementById('next');
+    const previousButton = document.getElementById('previous');
+
+    function updateAudio() {
+      audio.src = playlist[currentIndex];
+      audio.load();
+      if (isPlaying) {
+        audio.play();
+      }
+    }
+
+    playButton.addEventListener('click', () => {
+      if (isPlaying) {
+        audio.pause();
+        playButton.textContent = 'Play';
+      } else {
+        audio.play();
+        playButton.textContent = 'Pause';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % playlist.length;
+      updateAudio();
+      playButton.textContent = 'Pause';
+      isPlaying = true;
+    });
+
+    previousButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+      updateAudio();
+      playButton.textContent = 'Pause';
+      isPlaying = true;
+    });
+
+    audio.addEventListener('ended', () => {
+      isPlaying = false;
+      playButton.textContent = 'Play';
+    });
+  </script>
 
 </body>
 </html>
